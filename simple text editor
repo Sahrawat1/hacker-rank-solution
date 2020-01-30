@@ -1,0 +1,54 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int main() {
+    long int q;
+    cin>>q;
+    string k="";
+    stack<string>s;
+    s.push(k);
+   
+
+    while(q--)
+    {
+    long int t,a;
+    cin>>t;
+    
+    if(t==1)
+    {
+        string x;
+        cin>>x;
+        k=k+x;
+        s.push(k);
+    }
+    if(t==2 || t==3)
+    {
+        int m=k.size();
+         cin>>a;
+        if(t==2 && m!=0)
+        {
+            
+           
+            k=k.erase(m-a,m);
+            s.push(k);
+
+        }
+        else {
+            cout<<k[a-1]<<endl;
+        }
+    }
+    if(t==4)
+    {
+        s.pop();
+        k=s.top();
+    }
+    }
+   
+    return 0;
+}
